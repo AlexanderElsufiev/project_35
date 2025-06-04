@@ -1,0 +1,114 @@
+<!--  наследуемся от шаблона default.html, который мы создавали для flatpages -->
+{% extends 'flatpages/default.html' %}
+{% load custom_filters %}
+{% load custom_tags %}
+
+<!-- Название у нас будет products -->
+{% block title %}
+Posts
+{% endblock title %}
+
+
+
+
+<!-- В контенте на странице мы выводим все товары -->
+{% block content %}
+   <h1>Все посты</h1>
+<!--Сверху страницы должно быть выведено количество всех новостей (используется фильтр news|length).-->
+<!--    <h1>Количество всех постов ={{ posts|length}}</h1>-->
+
+<!-- Используем переданную из представления переменную time_now и применяем к ней фильтр date. По назначению этот фильтр очень похож на метод strftime у объекта datetime в Python — вывод времени в указанном формате. -->
+<!--   <h3>ВРЕМЯ СЕЙЧАС, переменная класса = {{ time_now|date:'M d Y' }}</h3>-->
+<!--    <h3>ВРЕМЯ СЕЙЧАС = {% current_time '%b %d %Y' %}</h3>-->
+
+<!-- Если в переменной next_sale будет None,
+   то выведется указанный в фильтре текст -->
+<!--   <h3> распродажи {{ next_sale|default_if_none:"Чуть позже сообщим о распродаже!" }}-->
+
+
+
+   <hr>
+   {% if posts %}
+       <table>
+           <tr>
+               <td>id</td>
+               <td>заголовок</td>
+               <td>дата публикации <p>(в формате день.месяц.год)</td>
+               <td>АВТОР2</td>
+               <td>тип</td>
+               <td>первые 50 сИМВОлов текста статьи</td>
+               <td>рейтинг</td>
+           </tr>
+
+
+           {% for post in posts %}
+<!--           {% ifchanged post.author %} <tr>АВТ {{ post.author }} </tr> {% endifchanged %}-->
+
+           <tr class="{% cycle 'blue' 'white' 'yellow' %}">
+<!--               {% ifchanged post.author %} <tr>АВТ- {{ post.author }} </tr> {% endifchanged %}-->
+               <td>{{ post.id }}</td>
+               <td>{{ post.zagolov|censor|truncatechars:20 }}</td>
+               <td>{{ post.time_in|date:'d M Y'  }}</td>
+<!--               <td>{{ post.tip }}</td>-->
+               <td>{{ post.author }}</td>
+               <td>{{ post.get_tip_display }}</td>
+               <td>{{ post.text|censor|truncatechars:50 }}</td>
+<!--               <td>{{ post.text|censor|truncatewords:20 }}</td>-->
+               <td>{{ post.raiting}}</td>
+           </tr>
+           {% endfor %}
+
+       </table>
+   {% else %}
+       <h2>Постов нет!</h2>
+   {% endif %}
+
+
+   {# Добавляем пагинацию на страницу #}
+
+   {# Информация о предыдущих страницах #}
+   {% if page_obj.has_previous %}
+       <a href="?page=1">1</a>
+       {% if page_obj.previous_page_number != 1 %}
+           {% if page_obj.previous_page_number > 2 %}
+           ...
+            {% endif %}
+           <a href="?page={{ page_obj.previous_page_number }}">{{ page_obj.previous_page_number }}</a>
+       {% endif %}
+   {% endif %}
+
+   {# Информация о текущей странице #}
+   {{ page_obj.number }}
+
+   {# Информация о следующих страницах #}
+   {% if page_obj.has_next %}
+       <a href="?page={{ page_obj.next_page_number }}">{{ page_obj.next_page_number }}</a>
+       {% if paginator.num_pages != page_obj.next_page_number %}
+            {% if paginator.num_pages|add:"-1"  > page_obj.next_page_number  %}
+           ...
+           {% endif %}
+           <a href="?page={{ page_obj.paginator.num_pages }}">{{ page_obj.paginator.num_pages }}</a>
+       {% endif %}
+   {% endif %}
+
+
+{% endblock content %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--<h1>Список постов</h1>-->
+<!--{% for post in posts %}-->
+<!--    <p>{{ post.zagolov }}</p>-->
+<!--{% endfor %}-->

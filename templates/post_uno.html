@@ -1,0 +1,48 @@
+<!--  наследуемся от шаблона default.html, который мы создавали для flatpages -->
+{% extends 'flatpages/default.html' %}
+{% load custom_filters %}
+
+<!-- Название у нас будет products -->
+{% block title %}
+Post
+НОВОСТЬ ПОСТ
+{% endblock title %}
+
+<!-- В контенте на странице мы выводим все товары -->
+{% block content %}
+<h1>ОДИН ПОСТ (новость, статья) </h1>
+<!--{{ post }}-->
+  <table>
+      <tr>
+          <td>Автор</td>
+          <td>{{ post.author }}</td>
+      </tr>
+      <tr>
+          <td>заголовок</td>
+          <td>{{ post.zagolov|censor }}</td>
+      </tr>
+      <tr>
+          <td>тип</td>
+          <td>{{ post.get_tip_display }}</td>
+      </tr>
+      <tr>
+          <td>дата публикации (в формате день.месяц.год)</td>
+          <td>{{ post.time_in|date:'d M Y'  }}</td>
+      </tr>
+      <tr>
+          <td>полный текст статьи (цензурированый)</td>
+          <td>{{ post.text|censor }}</td>
+      </tr>
+      <tr>
+          <td>к каким категориям отнесён пост</td>
+          <td>{{ post.categorys }}</td>
+      </tr>
+       </table>
+
+{% endblock content %}
+
+
+
+
+
+

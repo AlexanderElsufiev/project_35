@@ -1,0 +1,15 @@
+{% extends 'flatpages/default.html' %}
+
+{% block content %}
+<h1> НОВОСТЬ/статья корректировка </h1>
+<hr>
+<!--Название метода Post который будет осуществлять отправку формы-->
+<form action="" method="post">
+    {% csrf_token %}
+<!--    ссылка на сгенерированный из form html-код-->
+    {{ form.as_p }}
+<!--кнопка отправки формы                  -->
+    <input type="submit" value="Save" />
+</form>
+{% endblock content %}
+

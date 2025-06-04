@@ -1,0 +1,56 @@
+28.05.2025 13-22-06 ERROR "POST /news/create/ HTTP/1.1" 500 145 C:\Users\user\PycharmProjects\pythonProject3_12\.venv\Lib\site-packages\django\core\servers\basehttp.py None
+28.05.2025 13-52-27 = ERROR = "POST /news/create/ HTTP/1.1" 500 145 = C:\Users\user\PycharmProjects\pythonProject3_12\.venv\Lib\site-packages\django\core\servers\basehttp.py = None
+04.06.2025 17-58-33 = ERROR = Internal Server Error: /news/prob/ = C:\Users\user\PycharmProjects\pythonProject3_12\.venv\Lib\site-packages\django\utils\log.py = (<class 'django.template.exceptions.TemplateDoesNotExist'>, TemplateDoesNotExist('index.html'), <traceback object at 0x000001E89AE45A40>)
+Traceback (most recent call last):
+  File "C:\Users\user\PycharmProjects\pythonProject3_12\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\PycharmProjects\pythonProject3_12\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\PycharmProjects\pythonProject3_12\.venv\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\PycharmProjects\pythonProject3_12\.venv\Lib\site-packages\django\views\generic\base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\PycharmProjects\pythonProject3_12\dz\project_35\news\views.py", line 222, in get
+    return HttpResponse(render(request,'index.html',context))
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\PycharmProjects\pythonProject3_12\.venv\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\PycharmProjects\pythonProject3_12\.venv\Lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\PycharmProjects\pythonProject3_12\.venv\Lib\site-packages\django\template\loader.py", line 19, in get_template
+    raise TemplateDoesNotExist(template_name, chain=chain)
+django.template.exceptions.TemplateDoesNotExist: index.html
+04.06.2025 17-58-33 = ERROR = "GET /news/prob/ HTTP/1.1" 500 145 = C:\Users\user\PycharmProjects\pythonProject3_12\.venv\Lib\site-packages\django\core\servers\basehttp.py = None
+04.06.2025 17-59-38 = ERROR = Internal Server Error: /news/prob/ = C:\Users\user\PycharmProjects\pythonProject3_12\.venv\Lib\site-packages\django\utils\log.py = (<class 'django.template.exceptions.TemplateDoesNotExist'>, TemplateDoesNotExist('index.html'), <traceback object at 0x00000283458C9A40>)
+Traceback (most recent call last):
+  File "C:\Users\user\PycharmProjects\pythonProject3_12\.venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\PycharmProjects\pythonProject3_12\.venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\PycharmProjects\pythonProject3_12\.venv\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\PycharmProjects\pythonProject3_12\.venv\Lib\site-packages\django\views\generic\base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\PycharmProjects\pythonProject3_12\dz\project_35\news\views.py", line 222, in get
+    return HttpResponse(render(request,'index.html',context))
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\PycharmProjects\pythonProject3_12\.venv\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\PycharmProjects\pythonProject3_12\.venv\Lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\PycharmProjects\pythonProject3_12\.venv\Lib\site-packages\django\template\loader.py", line 19, in get_template
+    raise TemplateDoesNotExist(template_name, chain=chain)
+django.template.exceptions.TemplateDoesNotExist: index.html
+04.06.2025 17-59-38 = ERROR = "GET /news/prob/ HTTP/1.1" 500 145 = C:\Users\user\PycharmProjects\pythonProject3_12\.venv\Lib\site-packages\django\core\servers\basehttp.py = None
