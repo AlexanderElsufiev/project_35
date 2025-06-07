@@ -1,12 +1,15 @@
 
 from django.urls import path
 
+from django.urls import path, include
+from django.conf.urls.i18n import i18n_patterns
 
 # Импортируем созданное нами представление
 from .views import PostsList, PostsListSearch, PostDetail, ArtDetail, Index
 # , ProductDetail
 # from .views import ProductsList, ProductDetail, ProductCreate, ProductUpdate, ProductDelete
 from .views import PostCreate, PostUpdate, PostDelete, ArtCreate, ArtUpdate, ArtList, ArtDelete, ArtListSearch
+from .views import *
 
 from django.views.decorators.cache import cache_page # ДЛЯ КЭШИРОВАНИЯ
 
@@ -16,6 +19,12 @@ from django.views.decorators.cache import cache_page # ДЛЯ КЭШИРОВАН
 #     PostCreatePermission, PostUpdate, PostDelete,
 #     ArtCreate, ArtUpdate, ArtList, ArtDetail, ArtDelete, ArtListSearch
 # )
+
+# ДЛЯ ЛОКАЛИЗАЦИИ
+from django.contrib import admin
+from django.urls import path, include
+
+
 
 urlpatterns = [
    # path — означает путь.
@@ -46,7 +55,9 @@ urlpatterns = [
    path('<int:pk>/edit/', PostUpdate.as_view(), name='post_edit'),
    path('<int:pk>/delete/', PostDelete.as_view(), name='post_delete'),
 
-   # path('prob/', IndexViewTask.as_view()),
-   path('prob/', Index.as_view()),
+   # перевод - локализация
+   path('i18n/', include('django.conf.urls.i18n')),
+   path('prob/', Index.as_view(), name='index'),
 ]
 
+# urlpatterns += i18n_patterns(path('',include('basic.urls')),)

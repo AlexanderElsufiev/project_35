@@ -57,7 +57,7 @@ INSTALLED_APPS = [
     # 'news',  # меняю .ту строку на следующую, чтобы работали сигналы для почты
     'news.apps.NewsConfig',
     'django_apscheduler', # ЭТО ДЛЯ ПЕРИОДИЧЕСКИХ ЗАДАЧ
-    'mathfilters', # МАТЕМАТИЧЕСКИЕ ФОРМУЛЫ ДЛИННЫЕ
+    # 'mathfilters', # МАТЕМАТИЧЕСКИЕ ФОРМУЛЫ ДЛИННЫЕ
 
 ]
 
@@ -180,12 +180,9 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/5.1/topics/i18n/
 
-# LANGUAGE_CODE = 'en-us'
-LANGUAGE_CODE = 'ru'
+
 
 TIME_ZONE = 'UTC'
-
-USE_I18N = True
 
 USE_TZ = True
 
@@ -235,13 +232,17 @@ CELERY_TASK_SERIALIZER = 'json'
 CELERY_RESULT_SERIALIZER = 'json'
 
 
-CACHES = {
-    'default': {
-        # 'TIMEOUT': 60,
-        'BACKEND': 'django.core.cache.backends.filebased.FileBasedCache',
-        'LOCATION': os.path.join(BASE_DIR, 'cache_files'), # Указываем, куда будем сохранять кэшируемые файлы! Не забываем создать папку cache_files внутри папки с manage.py!
-    }
-}
+
+
+
+# ДЛЯ РАБОТЫ ЛОКАЛИЗАЦИИ ОТКЛЮЧАЮ КЕШИРОВАНИЕ
+# CACHES = {
+#     'default': {
+#         # 'TIMEOUT': 60,
+#         'BACKEND': 'django.core.cache.backends.filebased.FileBasedCache',
+#         'LOCATION': os.path.join(BASE_DIR, 'cache_files'), # Указываем, куда будем сохранять кэшируемые файлы! Не забываем создать папку cache_files внутри папки с manage.py!
+#     }
+# }
 
 
 # ВСЁ ДЛЯ ЛОГИРОВАНИЯ
@@ -342,5 +343,11 @@ ADMINS = [
 USE_I18N = True
 LOCALE_PATHS = [os.path.join(BASE_DIR, 'locale')]
 
+# LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'ru'
 
+LANGUAGES = [
+    ('en-us','English'),
+    ('ru','Русский'),
+]
 

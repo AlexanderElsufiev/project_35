@@ -202,20 +202,24 @@ class IndexViewTask(View):
 
 
 # УРОК 3/7   35.3 Перевод текстовой информации в шаблонах КУРС Локализации ЦЕЛЬ перевод на другой язык
+from django.shortcuts import  render
+from django.views import View
+from django.http.response import HttpResponse
+
 from django.utils.translation import gettext as _  # импортируем функцию для перевода
+from django.utils.translation import activate, get_supported_language_variant #, LANGUAGE_SESSION_KEY
+
+# пробник на перевод
+class Index11(View):
+    def get(self, request):
+        string = _('Hello world and my_str11')
+        return HttpResponse(string)
 
 
 # пробник на перевод
 class Index(View):
     def get(self, request):
-        string = _('Hello world and my_str')
-        return HttpResponse(string)
-
-
-# пробник на перевод
-class Index2(View):
-    def get(self, request):
-        string = _('Hello world and MY_ds')
+        string = _('Hello world and MY_ds22')
         context={'string':string}
         return HttpResponse(render(request,'index.html',context))
 

@@ -17,6 +17,8 @@ Including another URLconf
 
 from django.contrib import admin
 from django.urls import path, include
+from django.conf.urls.i18n import i18n_patterns
+
 # from . import views
 
 # from views import PostsList, PostsListSearch, PostDetail, ArtDetail, Index
